@@ -1,0 +1,48 @@
+body {
+  background-color: #050013;
+  color: #d3d3d3;
+  font-family: "Square";
+  font-weight: 300;
+  overflow: hidden; }
+  body .container-fluid {
+    height: 100vh; }
+    body .container-fluid nav {
+      margin: auto 0;
+      border: #d3d3d3 0.5px solid; }
+      body .container-fluid nav del {
+        color: #939393; }
+  body a {
+    display: inline-block;
+    color: #d3d3d3; }
+    body a:hover {
+      color: #d3d3d3;
+      text-decoration: none; }
+    body a:hover + .reveal {
+      opacity: 1; }
+  body .reveal {
+    padding-left: 15px;
+    color: #545454;
+    opacity: 0; }
+  body .reveal.show {
+    opacity: 1; }
+
+@font-face {
+  font-family: Square;
+  font-weight: 300;
+  src: url("../fonts/FORCED SQUARE.ttf"); }
+.reveal {
+  transition: opacity 0.5s ease; }
+
+a:after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 0;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease; }
+
+a:hover:after {
+  width: 100%;
+  background: #d3d3d3; }
+
+/*# sourceMappingURL=master.css.map */

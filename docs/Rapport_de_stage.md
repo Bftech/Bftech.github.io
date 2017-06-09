@@ -56,4 +56,15 @@ Ensuite pour regler le problème du responsif de manière fiable (idépendante d
 
 Une fois le _front-end_ determiné, nous avons du réfléchir à la manière dont nous allions coder le comportement dynamique du site en **PHP**. Pour ce faire, mon tuteur à choisi de se servir du _framework_ **CodeIgniter**.
 
-**CodeIgniter** est un _framework_ **PHP** qui se base entièrment sur le _pattern_ **MVC**, modèle de programmation idépendant de tout langage de programmation qui préscrit de séparer le code lié à l'affichage des données de celui qui le traite et de celui qui le gère. **MVC** signifie **M**odèle **V**ue **C**ontrolleur. 
+**CodeIgniter** est un _framework_ **PHP** qui se base entièrment sur le _pattern_ **MVC**, modèle de programmation idépendant de tout langage de programmation qui préscrit de séparer le code lié à l'affichage des données de celui qui le traite et de celui qui le gère. **MVC** signifie **M**odèle **V**ue **C**ontrolleur. Dans un site internet reposant sur le _pattern_ **MVC**, le modèle se charge des échanges avec la base de donnée, le controlleur effectue les traitements sur les données qu'il envoie ensuite à la vue qui les met en forme et les affiche.
+
+Par chance pour moi, je m'étais déjà servi de **CodeIgniter** pour différents projets personnels, je n'ai donc eu qu'a me mettre à jour grace à son excellente documentation.
+
+Lors de la refonte du site nous avons utilisé le système de gestion de versions **Git** (que j'utilise regulièrement) afin de pouvoir travailler en équipe  efficacement et pour permettre la révision des versions du code.
+
+
+#### Développement
+
+Lors du développement j'ai donc du faire vien attention à séparer mon codé sevant à l'affichage de celui traitant les données.
+
+Tout cela s'est effectué en collaboration avec Mr Eustache et l'équipe des stagiaires commercials/marketing afin d'analyser la conccurence, de choisir le _buisness plan_ du site ainsi que de cerner les fonctionnalités à implémenter principalement.

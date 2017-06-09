@@ -1,0 +1,60 @@
+// Vars
+$base-color : #050013;
+$text-color : #d3d3d3;
+$text-color-aside : darken($text-color, 25%);
+$text-color-em : darken($text-color, 50%);
+
+body{
+  background-color: $base-color;
+  color: $text-color;
+  font-family: "Square";
+  font-weight: 300;
+  overflow: hidden;
+
+  .container-fluid{
+    height: 100vh;
+
+    nav{
+      margin: auto 0;
+      border: $text-color 0.5px solid;
+
+      del{
+        color: $text-color-aside;
+      }
+    }
+  }
+
+  a {
+    display: inline-block;
+    color: $text-color;
+
+    &:hover{
+      color: $text-color;
+      text-decoration: none;
+    }
+
+    &:hover+.reveal{
+      opacity: 1;
+    }
+  }
+
+  .reveal{
+    padding-left: 15px;
+    color: $text-color-em;
+    opacity: 0;
+  }
+  .reveal.show{
+    opacity: 1;
+  }
+}
+
+// Fonts
+@font-face {
+    font-family: Square;
+    font-weight: 300;
+    src: url("../fonts/FORCED SQUARE.ttf");
+}
+
+
+// Imports
+@import "animations";
