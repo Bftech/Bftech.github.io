@@ -15,3 +15,8 @@ a:hover:after {
   width: 100%;
   background: $text-color;
 }
+
+nav>*{
+  transition: all 1s ease;
+  // transition: height 1s ease, opacity 1s ease;
+}

@@ -11,12 +11,25 @@ body{
   font-weight: 300;
   overflow: hidden;
 
+  p{
+    font-family: monospace;
+    text-align: justify;
+  }
+
+  hr{
+    background-color: $text-color-aside;
+  }
+
   .container-fluid{
     height: 100vh;
 
     nav{
       margin: auto 0;
       border: $text-color 0.5px solid;
+
+      h2{
+        margin-top: 5px;
+      }
 
       del{
         color: $text-color-aside;
@@ -45,6 +58,12 @@ body{
   }
   .reveal.show{
     opacity: 1;
+  }
+
+  .anim-hide{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
   }
 }
 

@@ -4,11 +4,18 @@ body {
   font-family: "Square";
   font-weight: 300;
   overflow: hidden; }
+  body p {
+    font-family: monospace;
+    text-align: justify; }
+  body hr {
+    background-color: #939393; }
   body .container-fluid {
     height: 100vh; }
     body .container-fluid nav {
       margin: auto 0;
       border: #d3d3d3 0.5px solid; }
+      body .container-fluid nav h2 {
+        margin-top: 5px; }
       body .container-fluid nav del {
         color: #939393; }
   body a {
@@ -25,6 +32,10 @@ body {
     opacity: 0; }
   body .reveal.show {
     opacity: 1; }
+  body .anim-hide {
+    height: 0;
+    opacity: 0;
+    overflow: hidden; }
 
 @font-face {
   font-family: Square;
@@ -44,5 +55,8 @@ a:after {
 a:hover:after {
   width: 100%;
   background: #d3d3d3; }
+
+nav > * {
+  transition: all 1s ease; }
 
 /*# sourceMappingURL=master.css.map */
