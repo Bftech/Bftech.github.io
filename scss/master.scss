@@ -1,0 +1,108 @@
+// Vars
+$base-color : #050013;
+$menu-seperators-color : desaturate(lighten($base-color, 10%), 50%);
+$text-color : #d3d3d3;
+$text-color-aside : darken($text-color, 33%);
+$text-color-em : darken($text-color, 50%);
+
+html,body {
+  height: 100%;
+}
+
+body{
+  background-color: $base-color;
+  color: $text-color;
+  font-family: "Square";
+  font-weight: 300;
+  overflow: hidden;
+
+  p{
+    font-family: monospace;
+    text-align: justify;
+  }
+
+  hr{
+    background-color: $text-color-aside;
+  }
+
+  .container-fluid{
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    #content{
+
+      padding: 0 15px 15px 0;
+
+      &::before, &::after{
+        display: block;
+        content: "";
+        width: 50px;
+        height: 50px;
+        position: absolute;
+      }
+
+      &::before {
+        top: 0px;
+        left: 0px;
+        border-top: $text-color 0.5px solid;
+        border-left: $text-color 0.5px solid;
+      }
+      &::after {
+        bottom: 0px;
+        right: 15px;
+        border-bottom: $text-color 0.5px solid;
+        border-right: $text-color 0.5px solid;
+      }
+
+      .inside{
+        overflow-y: auto;
+      }
+    }
+
+
+    nav{
+      // margin: 15px 0;
+      border: $text-color 0.5px solid;
+
+      h2{
+        margin-top: 5px;
+      }
+
+      del{
+        color: $text-color-aside;
+      }
+
+      .nav-header{
+        font-size: 1.2rem;
+        color: $text-color-em;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  a {
+    display: inline-block;
+    color: $text-color;
+
+    &:hover{
+      color: $text-color;
+      text-decoration: none;
+    }
+
+    &:hover+.reveal{
+      opacity: 1;
+    }
+  }
+
+}
+
+// Fonts
+@font-face {
+    font-family: Square;
+    font-weight: 300;
+    src: url("../fonts/FORCED SQUARE.ttf");
+}
+
+
+// Imports
+@import "animations";

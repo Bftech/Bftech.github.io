@@ -1,48 +1,120 @@
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #050013;
   color: #d3d3d3;
   font-family: "Square";
   font-weight: 300;
-  overflow: hidden; }
-  body p {
-    font-family: monospace;
-    text-align: justify; }
-  body hr {
-    background-color: #939393; }
-  body .container-fluid {
-    height: 100vh; }
-    body .container-fluid nav {
-      margin: auto 0;
-      border: #d3d3d3 0.5px solid; }
-      body .container-fluid nav h2 {
-        margin-top: 5px; }
-      body .container-fluid nav del {
-        color: #939393; }
-  body a {
-    display: inline-block;
-    color: #d3d3d3; }
-    body a:hover {
-      color: #d3d3d3;
-      text-decoration: none; }
-    body a:hover + .reveal {
-      opacity: 1; }
-  body .reveal {
-    padding-left: 15px;
-    color: #545454;
-    opacity: 0; }
-  body .reveal.show {
-    opacity: 1; }
-  body .anim-hide {
-    height: 0;
-    opacity: 0;
-    overflow: hidden; }
+  overflow: hidden;
+}
+
+body p {
+  font-family: monospace;
+  text-align: justify;
+}
+
+body hr {
+  background-color: #7f7f7f;
+}
+
+body .container-fluid {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+body .container-fluid #content {
+  padding: 0 15px 15px 0;
+}
+
+body .container-fluid #content::before, body .container-fluid #content::after {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+
+body .container-fluid #content::before {
+  top: 0px;
+  left: 0px;
+  border-top: #d3d3d3 0.5px solid;
+  border-left: #d3d3d3 0.5px solid;
+}
+
+body .container-fluid #content::after {
+  bottom: 0px;
+  right: 15px;
+  border-bottom: #d3d3d3 0.5px solid;
+  border-right: #d3d3d3 0.5px solid;
+}
+
+body .container-fluid #content .inside {
+  overflow-y: auto;
+}
+
+body .container-fluid nav {
+  border: #d3d3d3 0.5px solid;
+}
+
+body .container-fluid nav h2 {
+  margin-top: 5px;
+}
+
+body .container-fluid nav del {
+  color: #7f7f7f;
+}
+
+body .container-fluid nav .nav-header {
+  font-size: 1.2rem;
+  color: #545454;
+  padding-left: 0.5rem;
+}
+
+body a {
+  display: inline-block;
+  color: #d3d3d3;
+}
+
+body a:hover {
+  color: #d3d3d3;
+  text-decoration: none;
+}
+
+body a:hover + .reveal {
+  opacity: 1;
+}
 
 @font-face {
   font-family: Square;
   font-weight: 300;
-  src: url("../fonts/FORCED SQUARE.ttf"); }
-.reveal {
-  transition: opacity 0.5s ease; }
+  src: url("../fonts/FORCED SQUARE.ttf");
+}
+
+#main #content .inside, #main #content::after, #main #content::before {
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+#main #content .inside {
+  animation-duration: 1s;
+  animation-name: fadeIn;
+}
+
+#main #content::before {
+  animation-duration: .5s;
+  animation-name: closebox_top;
+}
+
+#main #content::after {
+  animation-duration: .5s;
+  animation-name: closebox_bottom;
+}
+
+#main.exit-transition #content .inside, #main.exit-transition #content::after, #main.exit-transition #content::before {
+  animation-direction: alternate-reverse;
+}
 
 a:after {
   content: '';
@@ -50,13 +122,61 @@ a:after {
   height: 1px;
   width: 0;
   background: transparent;
-  transition: width 0.5s ease, background-color 0.5s ease; }
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
 
 a:hover:after {
   width: 100%;
-  background: #d3d3d3; }
+  background: #d3d3d3;
+}
 
-nav > * {
-  transition: all 1s ease; }
+a.active {
+  animation: active-link 3s infinite;
+}
 
-/*# sourceMappingURL=master.css.map */
+@keyframes active-link {
+  0% {
+    color: #d3d3d3;
+  }
+  50% {
+    color: #7f7f7f;
+  }
+  100% {
+    color: #d3d3d3;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes closebox_top {
+  0% {
+    top: calc(50% - 35px);
+    left: calc(50% - 35px);
+    border-width: 5px;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    border-width: 0.5px;
+  }
+}
+
+@keyframes closebox_bottom {
+  0% {
+    bottom: calc(50% - 35px);
+    right: calc(50% - 35px);
+    border-width: 5px;
+  }
+  100% {
+    bottom: 0px;
+    right: 15px;
+    border-width: 0.5px;
+  }
+}
