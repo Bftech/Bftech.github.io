@@ -36,6 +36,17 @@ a{
   &.active{
     animation: active-link 3s infinite;
   }
+
+  #content &::before{
+    content: ">";
+    display: inline-block;
+    transition: transform .5s ease;
+    transform-origin: 50% 55%;
+    margin-right: 1px;
+  }
+  #content &:hover::before, #content &.hovered::before{
+    transform: rotate(90deg);
+  }
 }
 
 @keyframes active-link {
