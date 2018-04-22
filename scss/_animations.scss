@@ -1,0 +1,94 @@
+#main #content .inside, #main #content::after, #main #content::before{
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+#main #content .inside{
+  animation-duration: 1s;
+  animation-name: fadeIn;
+}
+#main #content::before{
+  animation-duration: .5s;
+  animation-name: closebox_top;
+}
+#main #content::after{
+  animation-duration: .5s;
+  animation-name: closebox_bottom;
+}
+#main.exit-transition #content .inside, #main.exit-transition #content::after, #main.exit-transition #content::before{
+  animation-direction: alternate-reverse;
+}
+
+a{
+  &:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    background: transparent;
+    transition: width 0.5s ease, background-color 0.5s ease;
+  }
+
+  &:hover:after {
+    width: 100%;
+    background: $text-color;
+  }
+
+  &.active{
+    animation: active-link 3s infinite;
+  }
+
+  #content &::before{
+    content: ">";
+    display: inline-block;
+    transition: transform .5s ease;
+    transform-origin: 50% 55%;
+    margin-right: 1px;
+  }
+  #content &:hover::before, #content &.hovered::before{
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes active-link {
+    0% { color: $text-color; }
+    50% { color: $text-color-aside; }
+    100% { color: $text-color; }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes closebox_top {
+  0% {
+    top: calc(50% - 35px);
+    left: calc(50% - 35px);
+    border-width: 5px;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    border-width: 0.5px;
+  }
+}
+@keyframes closebox_bottom {
+  0% {
+    bottom: calc(50% - 35px);
+    right: calc(50% - 35px);
+    border-width: 5px;
+  }
+  100% {
+    bottom: 0px;
+    right: 15px;
+    border-width: 0.5px;
+  }
+}
+// nav>*{
+//   transition: all 1s ease;
+//   // transition: height 1s ease, opacity 1s ease;
+// }
